@@ -1,19 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desenvolvedor M3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="./js/index.js"></script> -->
+    <link rel="stylesheet" href="main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenvolvedor M3</title>
-  <link rel="stylesheet" href="main.css" />
-</head>
+  <body>
+    <div id="container">
+      <header id="header">
+        <div class="container-header">
+          <a href=""
+            ><img src="./img/logo-m3.png" alt="Logo Performance Digital"
+          /></a>
+          <a href="" class="buy"><img src="./img/buy.png" alt="" /></a>
+        </div>
+      </header>
 
-<body>
+      <main>
+        <div id="filter-shirts">
+          <div class="header-two">
+            <h2>Blusas</h2>
+          </div>
+          <h3>CORES</h3>
+          <section class="filters">
+            <input type="checkbox" id="shirt1" name="shirt1" value="Amarelo" />
+            <label for="shirt1"> Amarelo</label><br />
+            <input type="checkbox" id="shirt2" name="shirt2" value="Azul" />
+            <label for="shirt2"> Azul</label><br />
+            <input type="checkbox" id="shirt3" name="shirt3" value="Branco" />
+            <label for="shirt3"> Branco</label><br />
+            <input type="checkbox" id="shirt4" name="shirt4" value="Cinza" />
+            <label for="shirt4"> Cinza</label><br />
+            <input type="checkbox" id="shirt5" name="shirt5" value="Laranja" />
+            <label for="shirt5"> Laranja</label><br />
+            <!-- <input type="submit" value="Submit" /> -->
 
-</body>
-<h1>Desafio m3</h1>
+            <h3>TAMANHOS</h3>
+            <div class="sizes">
+              <a href="#"><div class="size">P</div></a>
+              <a href="#"><div class="size">M</div></a>
+              <a href="#"><div class="size">G</div></a>
+              <a href="#"><div class="size">GG</div></a><br />
+              <a href="#"><div class="size">36</div></a>
+              <a href="#"><div class="size">38</div></a>
+              <a href="#"><div class="size">40</div></a>
+              <a href="#"><div class="size">36</div></a>
+              <a href="#"><div class="size">38</div></a>
+              <a href="#"><div class="size">40</div></a>
+            </div>
 
-<script src="bundle.js"></script>
+            <h3>FAIXA DE PREÇO</h3>
+            <form action="/action_page.php">
+              <p>Please select your favorite Web language:</p>
+              <input type="radio" id="html" name="fav_language" value="HTML">
+              <label for="html">HTML</label><br>
+              <input type="radio" id="css" name="fav_language" value="CSS">
+              <label for="css">CSS</label><br>
+              <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+              <label for="javascript">JavaScript</label>
+          </section>
+        </div>
 
+        <div class="container-clothing">
+          <div class="order header-two">
+            <input
+              list="orders"
+              name="order"
+              id="order"
+              placeholder="Ordenar por:"
+            />
+            <datalist id="orders">
+              <option value="Mais recentes"></option>
+              <option value="Menor preço"></option>
+              <option value="Maior preço"></option>
+            </datalist>
+          </div>
+          <section id="clothing"></section>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="bundle.js"></script>
 </html>
