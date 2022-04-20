@@ -37,7 +37,9 @@ main{
   margin: 4rem 16.2rem 0 16.2rem;
   position: relative;
 
-
+  .space{
+    margin-bottom: 2rem;
+  }
 
   #filter-shirts h2{
     font-size: 3.2rem;
@@ -57,21 +59,30 @@ main{
 
   .sizes{
     display: flex;
-    flex-direction: row;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 70%;
 
+    .size{
+      color: $grayOneColor;
+      border: 1px solid $grayOneColor;
+      background-color: #fff;
+      height: 3.2rem;
+      width: 3.2rem;
+      margin: 0 .4rem .4rem 0;
+    }
+
+    .size:hover{
+      cursor: pointer;
+    }
+    
+    .size:active{
+      border: 1px solid $primaryColor;
+    }
   }
 
-  a{
-    font-size: 1.6rem;
-    color: $grayOneColor;
-    text-decoration: none;
-  }
-
-  .size{
-    border: 1px solid $grayOneColor;
-    height: 3.2rem;
-    width: 3.2rem;
-   
+  .option-price{
+    margin-left: -.9rem;
   }
 
 }
@@ -135,4 +146,6 @@ main{
     }
   }  
 }
+
+
 
