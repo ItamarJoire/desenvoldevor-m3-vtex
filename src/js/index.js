@@ -6,7 +6,15 @@ const checkColors = document.querySelectorAll(".filters .shirts-op");
 const optionsColors = [];
 
 checkColors.forEach((button) => {
-  button.addEventListener("click", (event) => handleClick(event));
+  button.addEventListener("click", (event) => {
+    if (button.checked) {
+      handleClick(event);
+    }
+    if (!button.checked) {
+      console.log("Entrou no REMOVE");
+      handleClickRemove(event);
+    }
+  });
 });
 
 function handleClick(event) {
@@ -16,6 +24,19 @@ function handleClick(event) {
   console.log(optionsColors);
 
   getUser();
+}
+
+function handleClickRemove(event) {
+  eventValue = event.target.value;
+  for (var i = 0; i <= optionsColors.length; i++) {
+    if (optionsColors[i] == eventValue) {
+      console.log("Array com a cor: " + optionsColors[i]);
+      optionsColors.splice(i, 1);
+      clothingSection.innerHTML = "";
+      console.log("Array SEM a cor: " + optionsColors[i]);
+      getUser();
+    }
+  }
 }
 
 function getUser() {
@@ -50,8 +71,6 @@ function getUser() {
     .catch((error) => console.log(error));
 }
 
-getUser();
-
 function call(data) {
   clothingSection.innerHTML = "";
   for (var i = 0; i <= optionsColors.length; i++) {
@@ -69,10 +88,9 @@ function call(data) {
         `;
 
         clothingSection.appendChild(div);
-
-        console.log("Quantidade: " + j);
       }
     }
-    // optionsColors.shift();
   }
 }
+
+getUser();
