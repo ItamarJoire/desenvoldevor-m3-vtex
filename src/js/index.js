@@ -1,69 +1,70 @@
+// for (var i = 0; i < data.length; i++) {
+//   const div = document.createElement("div");
+//   div.setAttribute("id", "product");
+
+//   div.innerHTML = `
+//               <img src="${data[i].image}" alt="" />
+//               <h3>${data[i].name}</h3>
+//               <p class="price">R$ ${data[i].price}</p>
+//               <p class="portion">até ${data[i].parcelamento[0]}x de R$${data[i].parcelamento[1]}</p>
+//               <a href="#">COMPRAR</a>
+//             `;
+
+//   clothingSection.appendChild(div);
+// }
+
+// const containerClothingSection = document.querySelector(".container-clothing");
 const url = "http://localhost:5000/products";
-const containerClothingSection = document.querySelector(".container-clothing");
 const clothingSection = document.querySelector("#clothing");
 const checkColors = document.querySelectorAll(".filters .shirts-op");
 const checkSizes = document.querySelectorAll(".size");
 
-const optionsColors = [];
+const collection = [];
+const eventsColors = [];
 
-// FILTRO TAMANHOS
-checkSizes.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    // console.log(evet.)
-  });
-});
-
-// FILTRO CORES
 checkColors.forEach((button) => {
   button.addEventListener("click", (event) => {
+    const eventValue = event.target.value;
+
     if (button.checked) {
-      handleClick(event);
+      eventsColors.push(eventValue);
+
+      getUser();
     } else {
-      handleClickRemove(event);
+      removeProductFilter(eventValue);
+      console.log(collection);
     }
   });
 });
 
-function handleClick(event) {
-  eventValue = event.target.value;
-  optionsColors.push(eventValue);
-
-  console.log(optionsColors);
-
-  getUser();
-}
-
-function handleClickRemove(event) {
-  eventValue = event.target.value;
-  for (var i = 0; i <= optionsColors.length; i++) {
-    if (optionsColors[i] == eventValue) {
-      optionsColors.splice(i, 1);
-      clothingSection.innerHTML = "";
-
-      getUser();
+function removeProductFilter(eventValue) {
+  for (let i = 0; i < collection.length; i++) {
+    if (collection[i].color === eventValue) {
+      console.log(collection[i]);
+      collection.splice(i, 1);
+      i = -1;
     }
   }
 }
 
-function call(data) {
-  clothingSection.innerHTML = "";
-  for (var i = 0; i <= optionsColors.length; i++) {
-    for (var j = 0; j < data.length; j++) {
-      if (optionsColors[i] === data[j].color) {
-        const div = document.createElement("div");
-        div.setAttribute("id", "product");
-
-        div.innerHTML = `
-            <img src="${data[j].image}" alt="" />
-            <h3>${data[j].name}</h3>
-            <p class="price">R$ ${data[j].price}</p>
-            <p class="portion">até ${data[j].parcelamento[0]}x de R$${data[j].parcelamento[1]}</p>
-            <a href="#">COMPRAR</a>
-        `;
-
-        clothingSection.appendChild(div);
+function insertFilter(data) {
+  for (let i = 0; i < eventsColors.length; ++i) {
+    data.filter((element) => {
+      if (element.color === eventsColors[i]) {
+        collection.push({
+          id: element.id,
+          name: element.name,
+          parcelamento: element.parcelamento,
+          color: element.color,
+          image: element.image,
+          size: element.size,
+          date: element.date,
+        });
       }
-    }
+    });
+  }
+  while (eventsColors.length) {
+    eventsColors.pop();
   }
 }
 
@@ -72,29 +73,9 @@ function getUser() {
     .get(url)
     .then((response) => {
       const data = response.data;
-      console.log(data);
-      if (optionsColors.length >= 1) {
-        if (optionsColors.length == 1) {
-          clothingSection.innerHTML = "";
-        }
+      insertFilter(data);
 
-        call(data);
-      } else {
-        for (var i = 0; i < data.length; i++) {
-          const div = document.createElement("div");
-          div.setAttribute("id", "product");
-
-          div.innerHTML = `
-              <img src="${data[i].image}" alt="" />
-              <h3>${data[i].name}</h3>
-              <p class="price">R$ ${data[i].price}</p>
-              <p class="portion">até ${data[i].parcelamento[0]}x de R$${data[i].parcelamento[1]}</p>
-              <a href="#">COMPRAR</a>
-            `;
-
-          clothingSection.appendChild(div);
-        }
-      }
+      console.log(collection);
     })
     .catch((error) => console.log(error));
 }
