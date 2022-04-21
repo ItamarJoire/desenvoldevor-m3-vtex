@@ -6,7 +6,7 @@ const checkSizes = document.querySelectorAll(".size");
 const collection = [];
 const eventsColors = [];
 
-// Checa se algum filtro de cor foi selecionado
+// Checa se algum FILTRO DE COR foi selecionado
 checkColors.forEach((button) => {
   button.addEventListener("click", (event) => {
     const eventValue = event.target.value;
@@ -16,7 +16,18 @@ checkColors.forEach((button) => {
       getUser();
     } else {
       removeProductFilter(eventValue);
-      console.log(collection);
+    }
+  });
+});
+
+// Checa se algum FILTRO DE TAMANHO foi selecionado
+checkSizes.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const eventValue = event.target.value;
+    if (button.checked) {
+      console.log("Pressionado");
+    } else {
+      console.log("Removido");
     }
   });
 });
@@ -25,7 +36,6 @@ checkColors.forEach((button) => {
 function removeProductFilter(eventValue) {
   for (let i = 0; i < collection.length; i++) {
     if (collection[i].color === eventValue) {
-      console.log(collection[i]);
       collection.splice(i, 1);
       i = -1;
     }
