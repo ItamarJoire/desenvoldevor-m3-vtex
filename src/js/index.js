@@ -1,18 +1,3 @@
-// for (var i = 0; i < data.length; i++) {
-//   const div = document.createElement("div");
-//   div.setAttribute("id", "product");
-
-//   div.innerHTML = `
-//               <img src="${data[i].image}" alt="" />
-//               <h3>${data[i].name}</h3>
-//               <p class="price">R$ ${data[i].price}</p>
-//               <p class="portion">até ${data[i].parcelamento[0]}x de R$${data[i].parcelamento[1]}</p>
-//               <a href="#">COMPRAR</a>
-//             `;
-
-//   clothingSection.appendChild(div);
-// }
-
 // const containerClothingSection = document.querySelector(".container-clothing");
 const url = "http://localhost:5000/products";
 const clothingSection = document.querySelector("#clothing");
@@ -45,6 +30,8 @@ function removeProductFilter(eventValue) {
       i = -1;
     }
   }
+  clothingSection.innerHTML = "";
+  getUser();
 }
 
 function insertFilter(data) {
@@ -73,7 +60,42 @@ function getUser() {
     .get(url)
     .then((response) => {
       const data = response.data;
-      insertFilter(data);
+
+      if (eventsColors.length == 0) {
+        for (var i = 0; i < data.length; i++) {
+          const div = document.createElement("div");
+          div.setAttribute("id", "product");
+
+          div.innerHTML = `
+            <img src="${data[i].image}" alt="" />
+            <h3>${data[i].name}</h3>
+            <p class="price">R$ ${data[i].price}</p>
+            <p class="portion">até ${data[i].parcelamento[0]}x de R$${data[i].parcelamento[1]}</p>
+            <a href="#">COMPRAR</a>
+          `;
+
+          clothingSection.appendChild(div);
+        }
+        return;
+      } else {
+        insertFilter(data);
+      }
+
+      clothingSection.innerHTML = "";
+      for (var i = 0; i < collection.length; i++) {
+        const div = document.createElement("div");
+        div.setAttribute("id", "product");
+
+        div.innerHTML = `
+          <img src="${collection[i].image}" alt="" />
+          <h3>${collection[i].name}</h3>
+          <p class="price">R$ ${collection[i].price}</p>
+          <p class="portion">até ${collection[i].parcelamento[0]}x de R$${collection[i].parcelamento[1]}</p>
+          <a href="#">COMPRAR</a>
+        `;
+
+        clothingSection.appendChild(div);
+      }
 
       console.log(collection);
     })
