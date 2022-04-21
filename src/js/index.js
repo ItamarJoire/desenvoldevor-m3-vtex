@@ -1,4 +1,4 @@
-// const containerClothingSection = document.querySelector(".container-clothing");
+const containerClothingSection = document.querySelector(".container-clothing");
 const url = "http://localhost:5000/products";
 const clothingSection = document.querySelector("#clothing");
 const checkColors = document.querySelectorAll(".filters .shirts-op");
@@ -27,20 +27,36 @@ function removeProductFilter(eventValue) {
     if (collection[i].color === eventValue) {
       console.log(collection[i]);
       collection.splice(i, 1);
+
       i = -1;
     }
   }
-  clothingSection.innerHTML = "";
+
+  for (let i = 0; i < eventsColors.length; i++) {
+    if (eventsColors[i] === eventValue) {
+      eventsColors.splice(i, 1);
+    }
+  }
+
+  while (collection.length) {
+    collection.pop();
+  }
+
   getUser();
 }
 
 function insertFilter(data) {
-  for (let i = 0; i < eventsColors.length; ++i) {
+  clothingSection.innerHTML = "";
+  while (collection.length) {
+    collection.pop();
+  }
+  for (let i = 0; i < eventsColors.length; i++) {
     data.filter((element) => {
       if (element.color === eventsColors[i]) {
         collection.push({
           id: element.id,
           name: element.name,
+          price: element.price,
           parcelamento: element.parcelamento,
           color: element.color,
           image: element.image,
@@ -50,9 +66,11 @@ function insertFilter(data) {
       }
     });
   }
-  while (eventsColors.length) {
-    eventsColors.pop();
-  }
+
+  console.log(eventsColors);
+  // while (eventsColors.length) {
+  //   eventsColors.pop();
+  // }
 }
 
 function getUser() {
