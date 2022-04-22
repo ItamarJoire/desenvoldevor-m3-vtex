@@ -1,4 +1,5 @@
 const url = "http://localhost:5000/products";
+
 const clothingSection = document.querySelector("#clothing");
 const checkColors = document.querySelectorAll(".filters .shirts-op");
 const checkSizes = document.querySelectorAll(".size");
@@ -9,6 +10,7 @@ const buttonCloseFilter = document.querySelector("#close-filter");
 const buttonFilterOrder = document.querySelector("#btn-order");
 const buttonCloseOrder = document.querySelector("#close-filter-order");
 const buttonShowFilterColors = document.querySelector("#show-colors");
+const optionOrderRecent = document.querySelector("#order-recent");
 
 const modalFilter = document.querySelector(".modal-filter-ctp");
 const menuColor = document.querySelector("#menu-color");
@@ -20,6 +22,24 @@ buttonFilterOrder.addEventListener("click", () => {
 
 buttonCloseOrder.addEventListener("click", () => {
   menuOrder.classList.remove("active-filter-orders");
+});
+
+optionOrderRecent.addEventListener("click", () => {
+  optionOrderRecent.classList.toggle("active-order");
+  if (optionOrderRecent.classList.contains("active-order")) {
+    collection.sort(function (a, b) {
+      if (a.date < b.date) {
+        return 1;
+      }
+      if (a.date > b.date) {
+        return -1;
+      }
+      return 0;
+    });
+    structsProducts.filteredProducts();
+  } else {
+    getUser();
+  }
 });
 
 // Mostrar opções do FILTRO CORES
