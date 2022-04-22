@@ -7,7 +7,7 @@
 
 ## Layout :bookmark:
   <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/desktop.png" align="left" width="480" height="320">
-  <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/display-mobile.png"  width="390" height="340">
+  <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/display-mobile.png"  align="center" width="390" height="340">
   
   
   &nbsp;
