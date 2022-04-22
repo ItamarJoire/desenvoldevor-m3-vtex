@@ -6,7 +6,7 @@
 &nbsp;
 
 ## Layout :bookmark:
-  <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/desktop.png" align="left" width="400" height="360">
+  <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/desktop.png" align="left" width="400" height="350">
   <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/display-mobile.png"  width="400" height="350">
   
   
