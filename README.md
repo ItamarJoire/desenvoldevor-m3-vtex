@@ -6,6 +6,8 @@
 &nbsp;
 
 ## Layout :bookmark:
+  OBS: Clique na imagem para ter uma melhor visualização.
+
   <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/desktop.png" align="left" width="400" height="240">
   <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/display-mobile.png"  align="center" width="320" height="270">
   
