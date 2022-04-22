@@ -6,10 +6,9 @@
 &nbsp;
 
 ## Layout :bookmark:
-  <i>Clique na imagem para ter uma melhor visualização.</i>
 
-  <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/desktop.png" align="left" width="400" height="240">
-  <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/display-mobile.png"  align="center" width="320" height="270">
+    
+  <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/desk-mob.png"  align="center" >
   
   
   &nbsp;
