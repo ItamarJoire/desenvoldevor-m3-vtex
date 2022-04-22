@@ -27,16 +27,20 @@ buttonCloseOrder.addEventListener("click", () => {
 optionOrderRecent.addEventListener("click", () => {
   optionOrderRecent.classList.toggle("active-order");
   if (optionOrderRecent.classList.contains("active-order")) {
-    collection.sort(function (a, b) {
-      if (a.date < b.date) {
-        return 1;
-      }
-      if (a.date > b.date) {
-        return -1;
-      }
-      return 0;
-    });
-    structsProducts.filteredProducts();
+    if (collection.length > 0) {
+      collection.sort(function (a, b) {
+        if (a.date < b.date) {
+          return 1;
+        }
+        if (a.date > b.date) {
+          return -1;
+        }
+        return 0;
+      });
+      structsProducts.filteredProducts();
+    } else {
+      getUser();
+    }
   } else {
     getUser();
   }
@@ -148,6 +152,17 @@ function getUser() {
       const data = response.data;
 
       if (eventsColors.length == 0) {
+        if (optionOrderRecent.classList.contains("active-order")) {
+          data.sort(function (a, b) {
+            if (a.date < b.date) {
+              return 1;
+            }
+            if (a.date > b.date) {
+              return -1;
+            }
+            return 0;
+          });
+        }
         structsProducts.productsAll(data);
         return;
       } else {
