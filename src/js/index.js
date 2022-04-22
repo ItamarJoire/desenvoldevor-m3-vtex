@@ -3,6 +3,20 @@ const clothingSection = document.querySelector("#clothing");
 const checkColors = document.querySelectorAll(".filters .shirts-op");
 const checkSizes = document.querySelectorAll(".size");
 
+const buttonFilter = document.querySelector("#btn-filter");
+const buttonCloseFilter = document.querySelector("#close-filter");
+const modalFilter = document.querySelector(".modal-filter");
+
+// Abrir o menu FILTER mobile
+buttonFilter.addEventListener("click", () => {
+  console.log(modalFilter);
+  modalFilter.classList.add("active-modal-filter");
+});
+
+buttonCloseFilter.addEventListener("click", () => {
+  modalFilter.classList.remove("active-modal-filter");
+});
+
 const collection = [];
 const eventsColors = [];
 

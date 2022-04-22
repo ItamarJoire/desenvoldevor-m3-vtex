@@ -12,152 +12,252 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- <script src="./js/index.js"></script> -->
     <link rel="stylesheet" href="main.css" />
   </head>
 
   <body>
     <div id="container">
-      <header id="header">
+      <header class="content" id="header">
         <div class="container-header">
-          <a href=""
+          <a href="./index.html"
             ><img src="./img/logo-m3.png" alt="Logo Performance Digital"
           /></a>
           <a href="" class="buy"><img src="./img/buy.png" alt="" /></a>
         </div>
       </header>
 
-      <main>
-        <div id="filter-shirts">
-          <div class="header-two">
-            <h2>Blusas</h2>
+      <div class="line"></div>
+
+      <div class="content">
+        <main>
+          <div id="filter-shirts">
+            <h2 class="shirt">Blusas</h2>
+
+            <div class="buttons-menu">
+              <div class="btn" id="btn-filter">
+                  <h2>Filtrar</h2>
+              </div>
+              <div class="btn" id="btn-order">
+                  <h2>Ordenar</h2>
+              </div>
+            </div>
+          
+
+            <!-- <h3>CORES</h3>
+            <section class="filters space">
+              <input
+                type="checkbox"
+                class="shirts-op"
+                id="shirt1"
+                name="shirt1"
+                value="Amarelo"
+              />
+              <label for="shirt1"> Amarelo</label><br /><br />
+              <input
+                type="checkbox"
+                class="shirts-op"
+                id="shirt2"
+                name="shirt2"
+                value="Azul"
+              />
+              <label for="shirt2"> Azul</label><br /><br />
+              <input
+                type="checkbox"
+                class="shirts-op"
+                id="shirt3"
+                name="shirt3"
+                value="Branco"
+              />
+              <label for="shirt3"> Branco</label><br /><br />
+              <input
+                type="checkbox"
+                class="shirts-op"
+                id="shirt4"
+                name="shirt4"
+                value="Cinza"
+              />
+              <label for="shirt4"> Cinza</label><br /><br />
+              <input
+                type="checkbox"
+                class="shirts-op"
+                id="shirt5"
+                name="shirt5"
+                value="Laranja"
+              />
+              <label for="shirt5"> Laranja</label><br /><br />
+              <input
+                type="checkbox"
+                class="shirts-op"
+                id="shirt6"
+                name="shirt6"
+                value="Preto"
+              />
+              <label for="shirt6"> Preto</label><br />
+            </section>
+            
+
+            <h3>TAMANHOS</h3>
+            <section class="sizes space">
+              <div>
+                <input
+                  type="submit"
+                  class="size"
+                  name="p"
+                  value="P"
+                  unchecked
+                />
+              </div>
+
+              <div>
+                <input
+                  type="submit"
+                  class="size"
+                  name="m"
+                  value="M"
+                  unchecked
+                />
+              </div>
+
+              <div>
+                <input type="submit" class="size" name="g" value="G" />
+              </div>
+
+              <div>
+                <input type="submit" class="size" name="gg" value="GG" />
+              </div>
+
+              <div>
+                <input type="submit" class="size" name="u" value="U" />
+              </div>
+
+              <div>
+                <input type="submit" class="size" name="36" value="36" />
+              </div>
+
+              <div>
+                <input type="submit" class="size" name="38" value="38" />
+              </div>
+
+              <div>
+                <input type="submit" class="size" name="40" value="40" />
+              </div>
+            </section>
+
+            <h3>FAIXA DE PREÇO</h3>
+            <section class="option-price space">
+              <input type="radio" id="op1" name="prices" value="1" />
+              <label for="op1">de R$0 até R$50</label><br /><br />
+
+              <input type="radio" id="op2" name="prices" value="2" />
+              <label for="op2">de R$51 até R$150</label><br /><br />
+
+              <input type="radio" id="op3" name="prices" value="3" />
+              <label for="op3">de R$151 até R$300</label><br />
+              <br />
+
+              <input type="radio" id="op4" name="prices" value="4" />
+              <label for="op4">de R$151 até R$300</label><br />
+              <br />
+
+              <input type="radio" id="op5" name="prices" value="5" />
+              <label for="op5">de R$151 até R$300</label>
+            </section>
+          </div> -->
+
+          <div class="container-clothing">
+            <!-- <div class="order header-two">
+              <input
+                list="orders"
+                name="order"
+                id="order"
+                placeholder="Ordenar por:"
+              />
+              <datalist id="orders">
+                <option value="Mais recentes"></option>
+                <option value="Menor preço"></option>
+                <option value="Maior preço"></option>
+              </datalist>
+            </div> -->
+            <section id="clothing"></section>
           </div>
+        </main>
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <h4>M3: Implantação de E-commerce VTEX</h4>
+      </div>
+    </footer>
+
+    <div class="modal">
+      <div class="modal-filter modals-filters" >
+        <div class="content title-filter">
+          <h2>FILTRAR</h2>
+          <div id="close-filter">
+            <img src="./img/close.png" alt="">
+          </div>
+        </div>
+
+        <div class="line"></div>
+        
+        <div class="content menu">
           <h3>CORES</h3>
-          <section class="filters space">
-            <input
-              type="checkbox"
-              class="shirts-op"
-              id="shirt1"
-              name="shirt1"
-              value="Amarelo"
-            />
-            <label for="shirt1"> Amarelo</label><br /><br />
-            <input
-              type="checkbox"
-              class="shirts-op"
-              id="shirt2"
-              name="shirt2"
-              value="Azul"
-            />
-            <label for="shirt2"> Azul</label><br /><br />
-            <input
-              type="checkbox"
-              class="shirts-op"
-              id="shirt3"
-              name="shirt3"
-              value="Branco"
-            />
-            <label for="shirt3"> Branco</label><br /><br />
-            <input
-              type="checkbox"
-              class="shirts-op"
-              id="shirt4"
-              name="shirt4"
-              value="Cinza"
-            />
-            <label for="shirt4"> Cinza</label><br /><br />
-            <input
-              type="checkbox"
-              class="shirts-op"
-              id="shirt5"
-              name="shirt5"
-              value="Laranja"
-            />
-            <label for="shirt5"> Laranja</label><br /><br />
-            <input
-              type="checkbox"
-              class="shirts-op"
-              id="shirt6"
-              name="shirt6"
-              value="Preto"
-            />
-            <label for="shirt6"> Preto</label><br />
-          </section>
-          <!-- <input type="submit" value="Submit" /> -->
-
-          <h3>TAMANHOS</h3>
-          <section class="sizes space">
-            <div>
-              <input type="submit" class="size" name="p" value="P" unchecked />
-            </div>
-
-            <div>
-              <input type="submit" class="size" name="m" value="M" unchecked />
-            </div>
-
-            <div>
-              <input type="submit" class="size" name="g" value="G" />
-            </div>
-
-            <div>
-              <input type="submit" class="size" name="gg" value="GG" />
-            </div>
-
-            <div>
-              <input type="submit" class="size" name="u" value="U" />
-            </div>
-
-            <div>
-              <input type="submit" class="size" name="36" value="36" />
-            </div>
-
-            <div>
-              <input type="submit" class="size" name="38" value="38" />
-            </div>
-
-            <div>
-              <input type="submit" class="size" name="40" value="40" />
-            </div>
-          </section>
-
-          <h3>FAIXA DE PREÇO</h3>
-          <section class="option-price space">
-            <input type="radio" id="op1" name="prices" value="1" />
-            <label for="op1">de R$0 até R$50</label><br /><br />
-
-            <input type="radio" id="op2" name="prices" value="2" />
-            <label for="op2">de R$51 até R$150</label><br /><br />
-
-            <input type="radio" id="op3" name="prices" value="3" />
-            <label for="op3">de R$151 até R$300</label><br />
-            <br />
-
-            <input type="radio" id="op4" name="prices" value="4" />
-            <label for="op4">de R$151 até R$300</label><br />
-            <br />
-
-            <input type="radio" id="op5" name="prices" value="5" />
-            <label for="op5">de R$151 até R$300</label>
-          </section>
-        </div>
-
-        <div class="container-clothing">
-          <div class="order header-two">
-            <input
-              list="orders"
-              name="order"
-              id="order"
-              placeholder="Ordenar por:"
-            />
-            <datalist id="orders">
-              <option value="Mais recentes"></option>
-              <option value="Menor preço"></option>
-              <option value="Maior preço"></option>
-            </datalist>
+          <div id="show-colors">
+            <img src="./img//icon-show.png" alt="">
           </div>
-          <section id="clothing"></section>
         </div>
-      </main>
+
+        <section class="content filters space">
+          <input
+            type="checkbox"
+            class="shirts-op"
+            id="shirt1"
+            name="shirt1"
+            value="Amarelo"
+          />
+          <label for="shirt1"> Amarelo</label><br /><br />
+          <input
+            type="checkbox"
+            class="shirts-op"
+            id="shirt2"
+            name="shirt2"
+            value="Azul"
+          />
+          <label for="shirt2"> Azul</label><br /><br />
+          <input
+            type="checkbox"
+            class="shirts-op"
+            id="shirt3"
+            name="shirt3"
+            value="Branco"
+          />
+          <label for="shirt3"> Branco</label><br /><br />
+          <input
+            type="checkbox"
+            class="shirts-op"
+            id="shirt4"
+            name="shirt4"
+            value="Cinza"
+          />
+          <label for="shirt4"> Cinza</label><br /><br />
+          <input
+            type="checkbox"
+            class="shirts-op"
+            id="shirt5"
+            name="shirt5"
+            value="Laranja"
+          />
+          <label for="shirt5"> Laranja</label><br /><br />
+          <input
+            type="checkbox"
+            class="shirts-op"
+            id="shirt6"
+            name="shirt6"
+            value="Preto"
+          />
+          <label for="shirt6"> Preto</label><br />
+        </section>
+      </div>
     </div>
   </body>
   <script src="bundle.js"></script>

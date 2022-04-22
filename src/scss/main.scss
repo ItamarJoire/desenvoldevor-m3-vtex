@@ -1,7 +1,7 @@
 @import "reset";
 
 $blackColor: #000;
-$grayOneColor: rgba(0, 0, 0, 0.5);
+$greyOneColor: rgba(0, 0, 0, 0.5);
 $greyTwoColor: #666666;
 $primaryColor: #00C0EE;
 $border: #C7C7C7;
@@ -19,115 +19,87 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
-#header{
-  border-bottom: 1px solid $border;
-
-  .container-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 16.2rem;
-    padding: 1.6rem  0;
-  }
+a{
+  text-decoration: none;
 }
 
-main{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 4rem 16.2rem 0 16.2rem;
-  position: relative;
-
-  .space{
-    margin-bottom: 2rem;
-  }
-
-  #filter-shirts h2{
-    font-size: 3.2rem;
-    color: $textTitle;
-  }
+.content{
+  width: 94%;    
+  margin: 0 auto;        
+}
   
-  #filter-shirts h3{
-    margin-bottom: 1.4rem;
-    font-size: 1.6rem;
-    color: $textTitle;
-    
+.container-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6.4rem;
+}
+
+.line{
+  height: 1px;
+  border-bottom: 1px solid $border;
+}
+
+.shirt {
+  margin-top: 2.4rem;
+  font-size: 3.2rem;
+  color: $textTitle;
+  text-align: center;
+}
+
+.buttons-menu{
+  display: flex;
+  justify-content: center;
+  margin-top: 1.6rem;
+  
+  #btn-filter:hover,
+  #btn-order:hover{
+    cursor: pointer;
   }
 
-  label{
-    font-size: 1.4rem;
-  }
-
-  .sizes{
+  .btn{
     display: flex;
-    text-align: center;
-    flex-wrap: wrap;
-    max-width: 150px;
-
-    .size{
-      color: $grayOneColor;
-      border: 1px solid $grayOneColor;
-      background-color: #fff;
-      height: 3.2rem;
-      width: 3.2rem;
-      margin: 0 .4rem .4rem 0;
-    }
-
-    .size:hover{
-      cursor: pointer;
-    }
-    
-    .size:active{
-      border: 1px solid $primaryColor;
+    justify-content: center;
+    align-items: center;
+    height: 4.2rem;
+    padding: 0 5.2rem;
+    border: 1px solid $border;
+  
+    h2{
+      font-size: 2.4rem;
+      color: $greyTwoColor
     }
   }
-
-  .option-price{
-    margin-left: -.9rem;
-  }
-
 }
-
-.container-clothing .order{
-  position: absolute;
-  right: 0;
-  top: 1rem;
-}
-
-.header-two{
-  display: block;
-  margin-bottom: 4rem;
-}
-
 
 #clothing{
   display: grid;
-  flex-direction: column;
-  margin-top: 7rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 6.4rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  margin-top: 3.4rem;
 
   #product{
     text-align: center;
-    
+
     h3{
       font-size: 1.4rem;
       color: $blackColor;
       padding-top: 1rem;
     }
-  
+        
     .price{
       font-size: 1.6rem;
       font-weight: 700;
       padding-top: 1rem;
     }
-  
+        
     .portion{
       font-size: 1.6rem;
       color: $greyTwoColor;
       padding-top: .1rem;
       margin-bottom: 1.4rem;
     }
-  
+        
     a{
       display: block;
       list-style: none;
@@ -140,12 +112,91 @@ main{
   
       transition: opacity 200ms;
     }
-  
+        
     a:hover{
       opacity: .8;
     }
   }  
 }
 
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14.6rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+   
+    height: 3.3rem;
+    background-color: $blackColor;
+    color: #fff;
+}
+
+// MODAIS
+.modal-filter {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+
+.modal-filter{
+  visibility: hidden;
+}
+
+.modal-filter.active-modal-filter{
+  visibility: visible;
+}
+
+// MODAIS FILTER E ORDER
+.menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.title-filter{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+
+  &:hover{
+    cursor: pointer;
+  }
+  
+  h2{
+    font-size: 2.8rem;
+    color: $greyTwoColor;
+  }
+}
+
+  
+.modal h3{
+  display: flex;
+  align-items: center;
+  height: 7rem;
+
+  font-size: 2.4rem;
+  color: $greyTwoColor;
+}
+
+.filters{
+  margin-top: 2rem;
+
+  .shirts-op{
+    margin-right: 1rem;
+  }
+  
+  label{
+    font-size: 1.4rem;
+    color: $blackColor;
+  }
+}
 
 
