@@ -6,15 +6,29 @@ const checkSizes = document.querySelectorAll(".size");
 const buttonFilter = document.querySelector("#btn-filter");
 const buttonCloseFilter = document.querySelector("#close-filter");
 const modalFilter = document.querySelector(".modal-filter");
+const buttonShowFilterColors = document.querySelector("#show-colors");
+const menuColor = document.querySelector("#menu-color");
 
-// Abrir o menu FILTER mobile
+// Mostrar opções do FILTRO CORES
+buttonShowFilterColors.addEventListener("click", () => {
+  buttonShowFilterColors.classList.toggle("active-rotation");
+  if (buttonShowFilterColors.classList.contains("active-rotation")) {
+    menuColor.classList.add("active-filter-colors");
+  } else {
+    menuColor.classList.remove("active-filter-colors");
+  }
+});
+
+// Abrir o menu FILTRO mobile
 buttonFilter.addEventListener("click", () => {
-  console.log(modalFilter);
   modalFilter.classList.add("active-modal-filter");
 });
 
+// Fechar o menu FILTRO mobile
 buttonCloseFilter.addEventListener("click", () => {
   modalFilter.classList.remove("active-modal-filter");
+  menuColor.classList.remove("active-filter-colors");
+  buttonShowFilterColors.classList.remove("active-rotation");
 });
 
 const collection = [];

@@ -132,7 +132,7 @@ a{
     color: #fff;
 }
 
-// MODAIS
+// MODAIS <start>
 .modal-filter {
   display: flex;
   flex-direction: column;
@@ -142,41 +142,36 @@ a{
   top: 0;
   left: 0;
   background: #fff;
-}
 
-.modal-filter{
   visibility: hidden;
+
+  .title-filter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7rem;
+  
+    &:hover{
+      cursor: pointer;
+    }
+    
+    h2{
+      font-size: 2.8rem;
+      color: $greyTwoColor;
+    }
+  }
 }
 
 .modal-filter.active-modal-filter{
   visibility: visible;
 }
 
-// MODAIS FILTER E ORDER
 .menu{
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
-.title-filter{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 7rem;
-
-  &:hover{
-    cursor: pointer;
-  }
-  
-  h2{
-    font-size: 2.8rem;
-    color: $greyTwoColor;
-  }
-}
-
-  
 .modal h3{
   display: flex;
   align-items: center;
@@ -198,5 +193,22 @@ a{
     color: $blackColor;
   }
 }
+
+// OPÇÕES FILTRO COR
+
+#show-colors.active-rotation{
+  transform: rotate(90deg);
+} 
+
+#menu-color{
+  visibility: hidden;
+}
+
+#menu-color.active-filter-colors{
+  visibility: visible;
+}
+
+// MODAIS <end>
+
 
 
