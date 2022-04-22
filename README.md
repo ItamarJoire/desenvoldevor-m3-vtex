@@ -1,7 +1,22 @@
-# Venha ser um desenvolvedor da Digital M3
+## Layout :bookmark:
+  <img src="https://github.com/ItamarJoire/nlw3/blob/main/Desktop.png" align="left" width="400" height="260">
+  <img src="https://github.com/ItamarJoire/nlw3/blob/main/Moblie.png" align="center" width="146" height="298">
+  
+  
+  &nbsp;
+  
+  ## Tecnologias	:toolbox:
+  
+* [Node.js](https://nodejs.org/en/)
+* [Axios](https://expressjs.com/pt-br/)
 
 
-### Instruções para o iniciar
+&nbsp;
+
+## Instruções para o iniciar :rocket:
+
+
+ &nbsp;
 
 Para instalar as dependencias só é preciso executar o comando: `npm install`
 
