@@ -133,7 +133,9 @@ a{
 }
 
 // MODAIS <start>
-.modal-filter {
+.modal-filter-ctp, 
+.modal-filter-order
+{
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -162,7 +164,7 @@ a{
   }
 }
 
-.modal-filter.active-modal-filter{
+.modal-filter-ctp.active-modal-filter{
   visibility: visible;
 }
 
@@ -195,7 +197,6 @@ a{
 }
 
 // OPÇÕES FILTRO COR
-
 #show-colors.active-rotation{
   transform: rotate(90deg);
 } 
@@ -205,6 +206,22 @@ a{
 }
 
 #menu-color.active-filter-colors{
+  visibility: visible;
+}
+
+// OPÇÕES ORDENAÇÕES
+
+.op-orders ul li{
+  margin-top: 3rem;
+  font-size: 2.2rem;
+  color: $blackColor;
+}
+
+#menu-order{
+  visibility: hidden;
+}
+
+#menu-order.active-filter-orders{
   visibility: visible;
 }
 

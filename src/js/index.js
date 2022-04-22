@@ -5,9 +5,22 @@ const checkSizes = document.querySelectorAll(".size");
 
 const buttonFilter = document.querySelector("#btn-filter");
 const buttonCloseFilter = document.querySelector("#close-filter");
-const modalFilter = document.querySelector(".modal-filter");
+
+const buttonFilterOrder = document.querySelector("#btn-order");
+const buttonCloseOrder = document.querySelector("#close-filter-order");
 const buttonShowFilterColors = document.querySelector("#show-colors");
+
+const modalFilter = document.querySelector(".modal-filter-ctp");
 const menuColor = document.querySelector("#menu-color");
+const menuOrder = document.querySelector("#menu-order");
+
+buttonFilterOrder.addEventListener("click", () => {
+  menuOrder.classList.add("active-filter-orders");
+});
+
+buttonCloseOrder.addEventListener("click", () => {
+  menuOrder.classList.remove("active-filter-orders");
+});
 
 // Mostrar opções do FILTRO CORES
 buttonShowFilterColors.addEventListener("click", () => {
