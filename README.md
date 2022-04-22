@@ -17,7 +17,7 @@
   ## Tecnologias	:toolbox:
   
 * [Node.js](https://nodejs.org/en/)
-* [Axios](https://expressjs.com/pt-br/)
+* [Axios](https://axios-http.com/ptbr/)
 
 
 &nbsp;
