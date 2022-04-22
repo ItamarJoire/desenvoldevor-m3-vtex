@@ -2,19 +2,21 @@ const url = "http://localhost:5000/products";
 
 const clothingSection = document.querySelector("#clothing");
 const checkColors = document.querySelectorAll(".filters .shirts-op");
-const checkSizes = document.querySelectorAll(".size");
 
 const buttonFilter = document.querySelector("#btn-filter");
 const buttonCloseFilter = document.querySelector("#close-filter");
+const buttonShowFilterColors = document.querySelector("#show-colors");
 
 const buttonFilterOrder = document.querySelector("#btn-order");
 const buttonCloseOrder = document.querySelector("#close-filter-order");
-const buttonShowFilterColors = document.querySelector("#show-colors");
 const optionOrderRecent = document.querySelector("#order-recent");
 
 const modalFilter = document.querySelector(".modal-filter-ctp");
 const menuColor = document.querySelector("#menu-color");
 const menuOrder = document.querySelector("#menu-order");
+
+const collection = [];
+const eventsColors = [];
 
 buttonFilterOrder.addEventListener("click", () => {
   menuOrder.classList.add("active-filter-orders");
@@ -27,6 +29,7 @@ buttonCloseOrder.addEventListener("click", () => {
 optionOrderRecent.addEventListener("click", () => {
   optionOrderRecent.classList.toggle("active-order");
   if (optionOrderRecent.classList.contains("active-order")) {
+    // Ordena o array de filtros pela data mais recente
     if (collection.length > 0) {
       collection.sort(function (a, b) {
         if (a.date < b.date) {
@@ -68,9 +71,6 @@ buttonCloseFilter.addEventListener("click", () => {
   buttonShowFilterColors.classList.remove("active-rotation");
 });
 
-const collection = [];
-const eventsColors = [];
-
 // Checa se algum FILTRO DE COR foi selecionado
 checkColors.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -81,18 +81,6 @@ checkColors.forEach((button) => {
       getUser();
     } else {
       removeProductFilter(eventValue);
-    }
-  });
-});
-
-// Checa se algum FILTRO DE TAMANHO foi selecionado
-checkSizes.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    const eventValue = event.target.value;
-    if (button.checked) {
-      console.log("Pressionado");
-    } else {
-      console.log("Removido");
     }
   });
 });
@@ -144,37 +132,6 @@ function insertFilter(data) {
   }
 }
 
-// Captura os dados da API
-function getUser() {
-  axios
-    .get(url)
-    .then((response) => {
-      const data = response.data;
-
-      if (eventsColors.length == 0) {
-        if (optionOrderRecent.classList.contains("active-order")) {
-          data.sort(function (a, b) {
-            if (a.date < b.date) {
-              return 1;
-            }
-            if (a.date > b.date) {
-              return -1;
-            }
-            return 0;
-          });
-        }
-        structsProducts.productsAll(data);
-        return;
-      } else {
-        insertFilter(data);
-      }
-      structsProducts.filteredProducts();
-    })
-    .catch((error) => console.log(error));
-}
-
-getUser();
-
 // Objeto que contém os métodos que mostra os produtos na view
 const structsProducts = {
   // Todos os produtos da API
@@ -215,3 +172,34 @@ const structsProducts = {
     }
   },
 };
+
+// Captura os dados da API
+function getUser() {
+  axios
+    .get(url)
+    .then((response) => {
+      const data = response.data;
+
+      if (eventsColors.length == 0) {
+        if (optionOrderRecent.classList.contains("active-order")) {
+          data.sort(function (a, b) {
+            if (a.date < b.date) {
+              return 1;
+            }
+            if (a.date > b.date) {
+              return -1;
+            }
+            return 0;
+          });
+        }
+        structsProducts.productsAll(data);
+        return;
+      } else {
+        insertFilter(data);
+      }
+      structsProducts.filteredProducts();
+    })
+    .catch((error) => console.log(error));
+}
+
+getUser();
