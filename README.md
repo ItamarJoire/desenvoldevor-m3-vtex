@@ -1,6 +1,14 @@
+
+# Projeto Digital M3 :computer: 
+<p><strong>Digital M3</strong> é um E-commerce de roupas</p>
+
+
+&nbsp;
+
 ## Layout :bookmark:
-  <img src="https://github.com/ItamarJoire/nlw3/blob/main/Desktop.png" align="left" width="400" height="260">
-  <img src="https://github.com/ItamarJoire/nlw3/blob/main/Moblie.png" align="center" width="146" height="298">
+
+    
+  <img src="https://github.com/ItamarJoire/desenvoldevor-m3-vtex/blob/master/desk-mob.png"  align="center" >
   
   
   &nbsp;
@@ -8,10 +16,11 @@
   ## Tecnologias	:toolbox:
   
 * [Node.js](https://nodejs.org/en/)
-* [Axios](https://expressjs.com/pt-br/)
+* [Axios](https://axios-http.com/ptbr/)
 
 
 &nbsp;
+
 
 ## Instruções para o iniciar :rocket:
 
