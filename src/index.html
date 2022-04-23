@@ -17,26 +17,22 @@
   </head>
 
   <body>
-    <header class="content" id="header">
-      <div class="container-header">
-        <a href="./index.html"
-          ><img src="./img/logo-m3.png" alt="Logo Performance Digital"
-        /></a>
-        <a href="" class="buy"><img src="./img/buy.png" alt="" /></a>
-      </div>
-    </header>
-
-    <div class="line"></div>
-
-    <div id="mobile">
       <div id="container">
-          <div class="content">
-            <main>
-              <div>
-                <div id="filter-shirts">
-                  
-                <h2 class="shirt">Blusas</h2>
+        <header class="content" id="header">
+          <div class="container-header">
+            <a href="./index.html"
+              ><img src="./img/logo-m3.png" alt="Logo Performance Digital"
+            /></a>
+            <a href="" class="buy"><img src="./img/buy.png" alt="" /></a>
+          </div>
+        </header>
+        <div class="line"></div>
 
+        <div class="content">
+          <main>
+            <div>
+              <div class="mobile" id="filter-shirts">
+                <h2 class="shirt">Blusas</h2>
                 <div class="buttons-menu">
                   <div class="btn" id="btn-filter">
                       <h2>Filtrar</h2>
@@ -46,12 +42,91 @@
                   </div>
                 </div>
               </div>
-              <section id="clothing"></section>
+
+              <div class="justify">
+                <div class="desktop">
+                  <div id="column1">
+                    <h2 class="shirt">BLUSAS</h2>
+                    <h3>CORES</h3>
+                    
+                    <section class="content filters">
+                      <input
+                        type="checkbox"
+                        class="shirts-op"
+                        id="shirt1"
+                        name="shirt1"
+                        value="Amarelo"
+                      />
+                      <label for="shirt1"> Amarelo</label><br /><br />
+                      <input
+                        type="checkbox"
+                        class="shirts-op"
+                        id="shirt2"
+                        name="shirt2"
+                        value="Azul"
+                      />
+                      <label for="shirt2"> Azul</label><br /><br />
+                      <input
+                        type="checkbox"
+                        class="shirts-op"
+                        id="shirt3"
+                        name="shirt3"
+                        value="Branco"
+                      />
+                      <label for="shirt3"> Branco</label><br /><br />
+                      <input
+                        type="checkbox"
+                        class="shirts-op"
+                        id="shirt4"
+                        name="shirt4"
+                        value="Cinza"
+                      />
+                      <label for="shirt4"> Cinza</label><br /><br />
+                      <input
+                        type="checkbox"
+                        class="shirts-op"
+                        id="shirt5"
+                        name="shirt5"
+                        value="Laranja"
+                      />
+                      <label for="shirt5"> Laranja</label><br /><br />
+                      <input
+                        type="checkbox"
+                        class="shirts-op"
+                        id="shirt6"
+                        name="shirt6"
+                        value="Preto"
+                      />
+                      <label for="shirt6"> Preto</label><br />
+                    </section>
+                  </div>
+
+                  <div id="column2">
+                    <input list="browsers" />
+                    <datalist id="browsers">
+                      <option value="Chrome">
+                      <option value="Firefox">
+                      <option value="Internet Explorer">
+                      <option value="Opera">
+                      <option value="Safari">
+                    </datalist>
+                    
+                  </div>
+                </div>
+                
+                <section id="clothing"></section>
+              </div>
           </div>
             </main>
             </div>
           </div>
- 
+
+          <footer>
+            <div class="footer">
+              <h4>M3: Implantação de E-commerce VTEX</h4>
+            </div>
+          </footer>
+        
       </div> 
      
       <!-- Modal mobile  -->
@@ -152,13 +227,8 @@
         </div>
       </div>
   
-    </div> 
 
-    <footer>
-      <div class="footer">
-        <h4>M3: Implantação de E-commerce VTEX</h4>
-      </div>
-    </footer>
+   
   </body>
   <script src="bundle.js"></script>
 </html>

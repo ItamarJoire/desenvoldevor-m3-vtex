@@ -1,4 +1,7 @@
 @import "reset";
+.desktop{
+  display: none;
+}
 
 $blackColor: #000;
 $greyOneColor: rgba(0, 0, 0, 0.5);
@@ -18,8 +21,11 @@ $textTitle: #333;
 
 body{
   font-family: 'Open Sans', sans-serif;
+  height: 100%;
+
   overflow-x: hidden;
 }
+
 
 a{
   text-decoration: none;
@@ -80,6 +86,8 @@ a{
   grid-template-columns: repeat(2, 1fr);
   gap: 1.8rem;
   margin-top: 3.4rem;
+  height: 100%;
+
 
   #product{
     text-align: center;
@@ -122,6 +130,7 @@ a{
   }  
 }
 
+
 .footer{
     display: flex;
     justify-content: center;
@@ -134,8 +143,7 @@ a{
     width: 100vw;
     background-color: $blackColor;
     color: #fff;
-    position: relative;
-    bottom: 0;
+    
 }
 
 // MODAIS <start>
@@ -241,8 +249,30 @@ a{
 /* RESPONSIVIDADE */
 
 @media (min-width: 1020px) {
+  .desktop{
+    display: flex;
+  }
 
+  .mobile{
+    display: none;
+  }
+  
+  .justify{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  #clothing{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 8rem;
+  }
 
+  #column2{
+    position: absolute;
+    margin-top: 3rem;
+    right: 14rem;
+  }
 }
 
 
