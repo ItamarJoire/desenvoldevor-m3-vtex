@@ -8,6 +8,7 @@ $border: #C7C7C7;
 $textTitle: #333;
 
 *{
+ 
   box-sizing: border-box;
 }
 
@@ -17,11 +18,13 @@ $textTitle: #333;
 
 body{
   font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
 }
 
 a{
   text-decoration: none;
 }
+
 
 .content{
   width: 94%;    
@@ -128,8 +131,11 @@ a{
     text-transform: uppercase;
    
     height: 3.3rem;
+    width: 100vw;
     background-color: $blackColor;
     color: #fff;
+    position: relative;
+    bottom: 0;
 }
 
 // MODAIS <start>
@@ -231,5 +237,12 @@ a{
 
 // MODAIS <end>
 
+
+/* RESPONSIVIDADE */
+
+@media (min-width: 1020px) {
+
+
+}
 
 
