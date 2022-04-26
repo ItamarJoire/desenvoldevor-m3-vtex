@@ -249,29 +249,83 @@ a{
 /* RESPONSIVIDADE */
 
 @media (min-width: 1020px) {
-  .desktop{
-    display: flex;
-  }
-
   .mobile{
     display: none;
   }
-  
+
   .justify{
     display: flex;
     justify-content: space-around;
-  }
-  
-  #clothing{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 8rem;
+
+    .desktop{
+      display: flex;  
+    }
   }
 
+  #column1 h3{
+    margin-top: 5.4rem;
+    font-size: 1.6rem ;
+  }
+
+  
   #column2{
     position: absolute;
     margin-top: 3rem;
     right: 14rem;
+    
+    #options-order{
+      display: flex;
+      border: 1px solid $border;
+      padding: 1rem;
+
+      h3{
+        font-size: 1.6rem;
+      } 
+
+      img{
+        width: 1.2rem;
+        margin-left: 1rem;
+      }
+
+    }
+
+    .order{
+      border: 1px solid $border;
+      background-color: #fff; 
+      visibility: hidden;
+      
+      p{
+        font-size: 1.6rem;
+        height: 3.6rem;
+        width: 100%;
+        padding: 1rem 1rem 0 1rem ;
+      }
+
+      p:hover{
+        color: #fff;
+        background: $primaryColor;
+      }
+    }
+
+    .order.active-options{
+      visibility: visible;
+    }
+  }
+ 
+  #clothing{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.6rem;
+    margin-top: 11rem;
+  }
+
+  #toggle-order-desktop.active-rotation-desktop{
+    transform: rotate(90deg);
+  }
+
+  #order-recent-desktop.active-order-desktop{
+    color: #fff;
+    background-color: $primaryColor;
   }
 }
 

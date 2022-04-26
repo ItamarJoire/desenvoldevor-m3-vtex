@@ -7,9 +7,14 @@ const buttonFilter = document.querySelector("#btn-filter");
 const buttonCloseFilter = document.querySelector("#close-filter");
 const buttonShowFilterColors = document.querySelector("#show-colors");
 
+const buttonShowOrderDesktop = document.querySelector("#toggle-order-desktop");
+const optionsOrderDesktop = document.querySelector(".order");
 const buttonFilterOrder = document.querySelector("#btn-order");
 const buttonCloseOrder = document.querySelector("#close-filter-order");
 const optionOrderRecent = document.querySelector("#order-recent");
+const optionOrderRecentDesktop = document.querySelector(
+  "#order-recent-desktop"
+);
 
 const modalFilter = document.querySelector(".modal-filter-ctp");
 const menuColor = document.querySelector("#menu-color");
@@ -24,6 +29,35 @@ buttonFilterOrder.addEventListener("click", () => {
 
 buttonCloseOrder.addEventListener("click", () => {
   menuOrder.classList.remove("active-filter-orders");
+});
+
+// Mostra as opções de ordenação DESKTOP
+buttonShowOrderDesktop.addEventListener("click", () => {
+  buttonShowOrderDesktop.classList.toggle("active-rotation-desktop");
+  console.log(buttonShowOrderDesktop);
+  if (buttonShowOrderDesktop.classList.contains("active-rotation-desktop")) {
+    optionsOrderDesktop.classList.add("active-options");
+  } else {
+    optionsOrderDesktop.classList.remove("active-options");
+  }
+});
+
+optionOrderRecentDesktop.addEventListener("click", () => {
+  optionOrderRecentDesktop.classList.add("active-order-desktop");
+  if (collection.length > 0) {
+    collection.sort(function (a, b) {
+      if (a.date < b.date) {
+        return 1;
+      }
+      if (a.date > b.date) {
+        return -1;
+      }
+      return 0;
+    });
+    structsProducts.filteredProducts();
+  } else {
+    getUser();
+  }
 });
 
 optionOrderRecent.addEventListener("click", () => {
@@ -181,7 +215,10 @@ function getUser() {
       const data = response.data;
 
       if (eventsColors.length == 0) {
-        if (optionOrderRecent.classList.contains("active-order")) {
+        if (
+          optionOrderRecent.classList.contains("active-order") ||
+          optionOrderRecentDesktop.classList.contains("active-order-desktop")
+        ) {
           data.sort(function (a, b) {
             if (a.date < b.date) {
               return 1;
@@ -197,6 +234,7 @@ function getUser() {
       } else {
         insertFilter(data);
       }
+
       structsProducts.filteredProducts();
     })
     .catch((error) => console.log(error));
