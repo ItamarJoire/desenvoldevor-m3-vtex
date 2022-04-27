@@ -1,8 +1,4 @@
 const URL = "http://localhost:5000/products";
-const collection = [];
-const eventsColors = [];
-
-import { orderRecent } from "./ordinations";
 
 const buttonFilter = document.querySelector("#btn-filter");
 const buttonFilterOrder = document.querySelector("#btn-order");
@@ -25,6 +21,9 @@ const optionOrderRecentDesktop = document.querySelector(
 const modalFilter = document.querySelector(".modal-filter-ctp");
 const menuColor = document.querySelector("#menu-color");
 const menuOrder = document.querySelector("#menu-order");
+
+const collection = [];
+const eventsColors = [];
 
 buttonFilterOrder.addEventListener("click", () => {
   menuOrder.classList.add("active-filter-orders");
@@ -53,7 +52,15 @@ optionOrderRecentDesktop.addEventListener("click", () => {
     optionOrderRecent.classList.remove("active-order");
   }
   if (collection.length > 0) {
-    orderRecent();
+    collection.sort(function (a, b) {
+      if (a.date < b.date) {
+        return 1;
+      }
+      if (a.date > b.date) {
+        return -1;
+      }
+      return 0;
+    });
     structsProducts.filteredProducts();
   } else {
     getUser();
@@ -69,7 +76,15 @@ optionOrderRecent.addEventListener("click", () => {
   }
   if (optionOrderRecent.classList.contains("active-order")) {
     if (collection.length > 0) {
-      orderRecent();
+      collection.sort(function (a, b) {
+        if (a.date < b.date) {
+          return 1;
+        }
+        if (a.date > b.date) {
+          return -1;
+        }
+        return 0;
+      });
       structsProducts.filteredProducts();
     } else {
       getUser();
