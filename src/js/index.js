@@ -1,16 +1,22 @@
-const url = "http://localhost:5000/products";
+const URL = "http://localhost:5000/products";
+const collection = [];
+const eventsColors = [];
+
+import { orderRecent } from "./ordinations";
+
+const buttonFilter = document.querySelector("#btn-filter");
+const buttonFilterOrder = document.querySelector("#btn-order");
 
 const clothingSection = document.querySelector("#clothing");
 const checkColors = document.querySelectorAll(".filters .shirts-op");
 
-const buttonFilter = document.querySelector("#btn-filter");
 const buttonCloseFilter = document.querySelector("#close-filter");
 const buttonShowFilterColors = document.querySelector("#show-colors");
 
-const buttonShowOrderDesktop = document.querySelector("#toggle-order-desktop");
-const optionsOrderDesktop = document.querySelector(".order");
-const buttonFilterOrder = document.querySelector("#btn-order");
 const buttonCloseOrder = document.querySelector("#close-filter-order");
+const buttonShowOrderDesktop = document.querySelector("#toggle-order-desktop");
+
+const optionsOrderDesktop = document.querySelector(".order");
 const optionOrderRecent = document.querySelector("#order-recent");
 const optionOrderRecentDesktop = document.querySelector(
   "#order-recent-desktop"
@@ -19,9 +25,6 @@ const optionOrderRecentDesktop = document.querySelector(
 const modalFilter = document.querySelector(".modal-filter-ctp");
 const menuColor = document.querySelector("#menu-color");
 const menuOrder = document.querySelector("#menu-order");
-
-const collection = [];
-const eventsColors = [];
 
 buttonFilterOrder.addEventListener("click", () => {
   menuOrder.classList.add("active-filter-orders");
@@ -43,17 +46,14 @@ buttonShowOrderDesktop.addEventListener("click", () => {
 });
 
 optionOrderRecentDesktop.addEventListener("click", () => {
-  optionOrderRecentDesktop.classList.add("active-order-desktop");
+  optionOrderRecentDesktop.classList.toggle("active-order-desktop");
+  if (optionOrderRecentDesktop.classList.contains("active-order-desktop")) {
+    optionOrderRecent.classList.add("active-order");
+  } else {
+    optionOrderRecent.classList.remove("active-order");
+  }
   if (collection.length > 0) {
-    collection.sort(function (a, b) {
-      if (a.date < b.date) {
-        return 1;
-      }
-      if (a.date > b.date) {
-        return -1;
-      }
-      return 0;
-    });
+    orderRecent();
     structsProducts.filteredProducts();
   } else {
     getUser();
@@ -63,17 +63,13 @@ optionOrderRecentDesktop.addEventListener("click", () => {
 optionOrderRecent.addEventListener("click", () => {
   optionOrderRecent.classList.toggle("active-order");
   if (optionOrderRecent.classList.contains("active-order")) {
-    // Ordena o array de filtros pela data mais recente
+    optionOrderRecentDesktop.classList.add("active-order-desktop");
+  } else {
+    optionOrderRecentDesktop.classList.remove("active-order-desktop");
+  }
+  if (optionOrderRecent.classList.contains("active-order")) {
     if (collection.length > 0) {
-      collection.sort(function (a, b) {
-        if (a.date < b.date) {
-          return 1;
-        }
-        if (a.date > b.date) {
-          return -1;
-        }
-        return 0;
-      });
+      orderRecent();
       structsProducts.filteredProducts();
     } else {
       getUser();
@@ -166,51 +162,10 @@ function insertFilter(data) {
   }
 }
 
-// Objeto que contém os métodos que mostra os produtos na view
-const structsProducts = {
-  // Todos os produtos da API
-  productsAll(data) {
-    clothingSection.innerHTML = "";
-    for (var i = 0; i < data.length; i++) {
-      const div = document.createElement("div");
-      div.setAttribute("id", "product");
-
-      div.innerHTML = `
-        <img src="${data[i].image}" alt="" />
-        <h3>${data[i].name}</h3>
-        <p class="price">R$ ${data[i].price}</p>
-        <p class="portion">até ${data[i].parcelamento[0]}x de R$${data[i].parcelamento[1]}</p>
-        <a href="#">COMPRAR</a>
-      `;
-
-      clothingSection.appendChild(div);
-    }
-  },
-
-  // Captura dos produtos com os filtros
-  filteredProducts() {
-    clothingSection.innerHTML = "";
-    for (var i = 0; i < collection.length; i++) {
-      const div = document.createElement("div");
-      div.setAttribute("id", "product");
-
-      div.innerHTML = `
-          <img src="${collection[i].image}" alt="" />
-          <h3>${collection[i].name}</h3>
-          <p class="price">R$ ${collection[i].price}</p>
-          <p class="portion">até ${collection[i].parcelamento[0]}x de R$${collection[i].parcelamento[1]}</p>
-          <a href="#">COMPRAR</a>
-        `;
-
-      clothingSection.appendChild(div);
-    }
-  },
-};
-
 // Captura os dados da API
 function getUser() {
   axios
-    .get(url)
+    .get(URL)
     .then((response) => {
       const data = response.data;
 
@@ -229,6 +184,7 @@ function getUser() {
             return 0;
           });
         }
+
         structsProducts.productsAll(data);
         return;
       } else {
@@ -241,3 +197,44 @@ function getUser() {
 }
 
 getUser();
+
+// Objeto que contém os métodos que mostra os produtos na view
+const structsProducts = {
+  // Todos os produtos da API
+  productsAll(data) {
+    clothingSection.innerHTML = "";
+    for (var i = 0; i < data.length; i++) {
+      const div = document.createElement("div");
+      div.setAttribute("id", "product");
+
+      div.innerHTML = `
+        <img src="${data[i].image}" alt="" />
+        <h3>${data[i].name}</h3>
+        <p class="price">R$ ${data[i].price}</p>
+        <p class="portion">até ${data[i].parcelamento[0]}x de R$${data[i].parcelamento[1]}</p>
+        <a class="purchase" href="#">COMPRAR</a>
+      `;
+
+      clothingSection.appendChild(div);
+    }
+  },
+
+  // Captura dos produtos com os filtros
+  filteredProducts() {
+    clothingSection.innerHTML = "";
+    for (var i = 0; i < collection.length; i++) {
+      const div = document.createElement("div");
+      div.setAttribute("id", "product");
+
+      div.innerHTML = `
+          <img src="${collection[i].image}" alt="" />
+          <h3>${collection[i].name}</h3>
+          <p class="price">R$ ${collection[i].price}</p>
+          <p class="portion">até ${collection[i].parcelamento[0]}x de R$${collection[i].parcelamento[1]}</p>
+          <a class="purchase" href="#">COMPRAR</a>
+        `;
+
+      clothingSection.appendChild(div);
+    }
+  },
+};
