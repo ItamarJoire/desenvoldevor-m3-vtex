@@ -44,6 +44,7 @@ buttonShowOrderDesktop.addEventListener("click", () => {
   }
 });
 
+// Ordena para o Mais recente DESKTOP
 optionOrderRecentDesktop.addEventListener("click", () => {
   optionOrderRecentDesktop.classList.toggle("active-order-desktop");
   if (optionOrderRecentDesktop.classList.contains("active-order-desktop")) {
@@ -67,6 +68,7 @@ optionOrderRecentDesktop.addEventListener("click", () => {
   }
 });
 
+// Ordena para o Mais recente MOBILE
 optionOrderRecent.addEventListener("click", () => {
   optionOrderRecent.classList.toggle("active-order");
   if (optionOrderRecent.classList.contains("active-order")) {
@@ -85,6 +87,7 @@ optionOrderRecent.addEventListener("click", () => {
         }
         return 0;
       });
+
       structsProducts.filteredProducts();
     } else {
       getUser();
